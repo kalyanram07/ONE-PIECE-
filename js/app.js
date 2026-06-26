@@ -29,6 +29,13 @@ startBtn.addEventListener('click', () => {
     introScreen.style.visibility = 'hidden';
     document.body.classList.add('started');
     
+    // Play Audio (Drums of Liberation)
+    const audio = document.getElementById('drumsOfLiberation');
+    if (audio) {
+        audio.volume = 0.6; // Set comfortable volume
+        audio.play().catch(err => console.log('Audio playback prevented by browser:', err));
+    }
+    
     // Trigger observer for first section immediately
     window.dispatchEvent(new Event('scroll'));
 });
@@ -66,9 +73,11 @@ document.addEventListener('mouseleave', () => {
 
 // Restart button
 const restartBtn = document.getElementById('restart-btn');
-if (restartBtn) {
+const mainContainer = document.getElementById('main-content');
+if (restartBtn && mainContainer) {
     restartBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll the main content container instead of window
+        mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
