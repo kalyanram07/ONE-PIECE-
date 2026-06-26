@@ -215,9 +215,9 @@ body.started #floating-nav {
 }
 
 #crew-list li:hover, #crew-list li.active {
-    color: var(--gold);
+    color: var(--theme-color);
     transform: translateX(10px);
-    text-shadow: 0 0 10px var(--gold-glow);
+    text-shadow: 0 0 10px var(--theme-color);
 }
 
 /* Main Scrolling Container */
@@ -228,11 +228,12 @@ main {
     overflow-x: hidden;
     position: relative;
     z-index: 10; /* Ensure it stays above particles */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
 }
 
 main::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    display: none; /* WebKit */
 }
 
 /* Sections */
