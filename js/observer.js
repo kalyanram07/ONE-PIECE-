@@ -1,3 +1,5 @@
+// Observer pattern for scroll interactions
+const mainContent = document.getElementById('main-content');
 const sections = document.querySelectorAll('.character-section');
 const navItems = document.querySelectorAll('#crew-list li');
 const progressFill = document.getElementById('progress-fill');
@@ -8,7 +10,7 @@ const bgLayer1 = document.getElementById('bg-layer-1');
 const bgLayer2 = document.getElementById('bg-layer-2');
 let activeBgLayer = 1;
 
-// Helper to set theme colors (updates CSS variables)
+// Helper to set theme colors
 function updateTheme(color) {
     if(color) {
         document.documentElement.style.setProperty('--theme-color', color);
@@ -17,6 +19,8 @@ function updateTheme(color) {
 
 // Background Swapper
 function swapBackground(imgUrl, themeColor) {
+    if (!imgUrl) return;
+    
     const nextLayer = activeBgLayer === 1 ? bgLayer2 : bgLayer1;
     const currentLayer = activeBgLayer === 1 ? bgLayer1 : bgLayer2;
 
@@ -25,32 +29,29 @@ function swapBackground(imgUrl, themeColor) {
     currentLayer.classList.remove('active');
 
     activeBgLayer = activeBgLayer === 1 ? 2 : 1;
-    
     updateTheme(themeColor);
 }
 
-// Observer Options
+// Intersection Observer specifically targeting the scrolling container
 const observerOptions = {
-    root: null,
+    root: mainContent, // VERY IMPORTANT: target the container that actually scrolls
     rootMargin: '0px',
     threshold: 0.5 // Trigger when 50% is visible
 };
 
-// Intersection Observer
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Add visible class to trigger CSS animations (bars filling, card sliding)
             entry.target.classList.add('is-visible');
 
-            // 1. Swap Background
+            // Swap Background
             const bgImg = entry.target.getAttribute('data-bg');
             const themeColor = entry.target.getAttribute('data-theme');
             if (bgImg) {
                 swapBackground(bgImg, themeColor);
             }
 
-            // 2. Update Navigation Active State
+            // Update Navigation
             const targetId = entry.target.id;
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -58,33 +59,29 @@ const sectionObserver = new IntersectionObserver((entries) => {
                     item.classList.add('active');
                 }
             });
-
-        } else {
-            // Optional: remove visible class if you want animations to re-trigger on scroll up
-            // entry.target.classList.remove('is-visible');
         }
     });
 }, observerOptions);
 
-// Observe all sections
+// Initialize observer on all sections
 sections.forEach(section => {
     sectionObserver.observe(section);
 });
 
-// Scroll Progress Tracker
-const mainContent = document.getElementById('main-content');
-
-mainContent.addEventListener('scroll', () => {
-    const totalScroll = mainContent.scrollHeight - mainContent.clientHeight;
-    const currentScroll = mainContent.scrollTop;
-    
-    // Calculate percentage 0 to 100
-    let scrollPercentage = (currentScroll / totalScroll) * 100;
-    
-    // Update progress bar
-    progressFill.style.height = `${scrollPercentage}%`;
-    shipIndicator.style.top = `${scrollPercentage}%`;
-});
+// Scroll Progress Tracker for the ship on the Grand Line
+if (mainContent) {
+    mainContent.addEventListener('scroll', () => {
+        // Calculate total scrollable distance
+        const totalScroll = mainContent.scrollHeight - mainContent.clientHeight;
+        const currentScroll = mainContent.scrollTop;
+        
+        let scrollPercentage = (currentScroll / totalScroll) * 100;
+        
+        // Update progress bar UI
+        if (progressFill) progressFill.style.height = `${scrollPercentage}%`;
+        if (shipIndicator) shipIndicator.style.top = `${scrollPercentage}%`;
+    });
+}
 
 // Click navigation
 navItems.forEach(item => {
@@ -92,8 +89,13 @@ navItems.forEach(item => {
         const targetId = item.getAttribute('data-target');
         const targetSection = document.getElementById(targetId);
         
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+        if (targetSection && mainContent) {
+            // Calculate position manually to scroll inside mainContent
+            const targetTop = targetSection.offsetTop;
+            mainContent.scrollTo({
+                top: targetTop,
+                behavior: 'smooth'
+            });
         }
     });
 });

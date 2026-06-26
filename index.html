@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Grand Line Experience | Straw Hat Chronicles</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Use Playfair Display for Wanted Posters and Cinzel for Epic Headers -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -18,7 +19,6 @@
             <h2 class="intro-text" id="intro-3">A new adventure begins.</h2>
             <button id="start-btn">Begin the Adventure</button>
         </div>
-        <div class="intro-clouds"></div>
     </div>
 
     <!-- Particle Engine Canvas -->
@@ -29,45 +29,64 @@
     <div id="bg-layer-2" class="bg-layer"></div>
     <div class="global-overlay"></div>
 
-    <!-- Premium Floating Navigation -->
+    <!-- Premium Floating Navigation (Grand Line Route) -->
     <nav id="floating-nav">
         <div class="nav-header">The Grand Line</div>
         <div class="nav-progress-track">
             <div class="nav-progress-fill" id="progress-fill"></div>
-            <div id="ship-indicator">⚓</div>
+            <div id="ship-indicator">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            </div>
         </div>
         <ul id="crew-list">
-            <li data-target="luffy" class="active">⚓ Luffy</li>
-            <li data-target="zoro">⚔ Zoro</li>
-            <li data-target="nami">🗺 Nami</li>
-            <li data-target="usopp">🎯 Usopp</li>
-            <li data-target="sanji">🔥 Sanji</li>
-            <li data-target="chopper">🐼 Chopper</li>
-            <li data-target="robin">📚 Robin</li>
-            <li data-target="franky">🤖 Franky</li>
+            <li data-target="hero" class="active">Start</li>
+            <li data-target="luffy">Luffy</li>
+            <li data-target="zoro">Zoro</li>
+            <li data-target="nami">Nami</li>
+            <li data-target="usopp">Usopp</li>
+            <li data-target="sanji">Sanji</li>
+            <li data-target="chopper">Chopper</li>
+            <li data-target="robin">Robin</li>
+            <li data-target="franky">Franky</li>
+            <li data-target="brook">Brook</li>
+            <li data-target="jinbe">Jinbe</li>
         </ul>
     </nav>
 
     <!-- Scroll Content -->
     <main id="main-content">
+        
+        <!-- Epic Hero Section -->
+        <section id="hero" class="character-section hero-section" data-bg="assets/backgrounds/luffy.png" data-theme="#f1c40f">
+            <div class="hero-content">
+                <div class="hero-title-wrapper">
+                    <h1 class="hero-title">GEAR 5</h1>
+                    <h2 class="hero-subtitle">WARRIOR OF LIBERATION</h2>
+                </div>
+                <div class="scroll-indicator">Scroll to Explore<br>↓</div>
+            </div>
+            <div class="hero-smoke"></div>
+        </section>
+
         <!-- 1. Luffy -->
         <section id="luffy" class="character-section" data-bg="assets/backgrounds/luffy.png" data-theme="#f1c40f">
             <div class="content-wrapper">
                 <div class="character-image luffy-hover" style="background-image: url('assets/images/luffy.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <div class="poster-image-placeholder"></div>
+                        <h1 class="name">MONKEY D. LUFFY</h1>
                         <div class="bounty-stamp">฿ 3,000,000,000</div>
-                        <h1 class="name">Monkey D. Luffy</h1>
-                        <h3 class="role">Captain • "Straw Hat"</h3>
-                        <p class="quote">"I'm going to be King of the Pirates!"</p>
-                        <div class="traits">
-                            <span>Devil Fruit: Hito Hito no Mi, Model: Nika</span>
-                            <span>Haki: Conqueror's, Armament, Observation</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 100%; background: #f1c40f;"></div></div></div>
-                            <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 95%; background: #f1c40f;"></div></div></div>
-                            <div class="stat"><span class="label">Leadership</span><div class="bar"><div class="fill" style="width: 100%; background: #f1c40f;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Captain • "Straw Hat"</p>
+                            <p class="quote">"I'm going to be King of the Pirates!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 100%; background: #f1c40f;"></div></div></div>
+                                <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 95%; background: #f1c40f;"></div></div></div>
+                                <div class="stat"><span class="label">Leadership</span><div class="bar"><div class="fill" style="width: 100%; background: #f1c40f;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,20 +97,20 @@
         <section id="zoro" class="character-section" data-bg="assets/backgrounds/zoro.png" data-theme="#2ecc71">
             <div class="content-wrapper">
                 <div class="character-image zoro-hover" style="background-image: url('assets/images/zoro.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">RORONOA ZORO</h1>
                         <div class="bounty-stamp">฿ 1,111,000,000</div>
-                        <h1 class="name">Roronoa Zoro</h1>
-                        <h3 class="role">Swordsman • "Pirate Hunter"</h3>
-                        <p class="quote">"I'll become the world's greatest swordsman!"</p>
-                        <div class="traits">
-                            <span>Style: Three Sword Style</span>
-                            <span>Haki: Conqueror's, Armament, Observation</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 98%; background: #2ecc71;"></div></div></div>
-                            <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 90%; background: #2ecc71;"></div></div></div>
-                            <div class="stat"><span class="label">Endurance</span><div class="bar"><div class="fill" style="width: 100%; background: #2ecc71;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Swordsman • "Pirate Hunter"</p>
+                            <p class="quote">"I'll become the world's greatest swordsman!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 98%; background: #2ecc71;"></div></div></div>
+                                <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 90%; background: #2ecc71;"></div></div></div>
+                                <div class="stat"><span class="label">Endurance</span><div class="bar"><div class="fill" style="width: 100%; background: #2ecc71;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,20 +121,19 @@
         <section id="nami" class="character-section" data-bg="assets/backgrounds/nami.png" data-theme="#e67e22">
             <div class="content-wrapper">
                 <div class="character-image nami-hover" style="background-image: url('assets/images/nami.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">NAMI</h1>
                         <div class="bounty-stamp">฿ 366,000,000</div>
-                        <h1 class="name">Nami</h1>
-                        <h3 class="role">Navigator • "Cat Burglar"</h3>
-                        <p class="quote">"I'm going to draw a map of the entire world!"</p>
-                        <div class="traits">
-                            <span>Weapon: Clima-Tact</span>
-                            <span>Specialty: Weather Manipulation</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 95%; background: #e67e22;"></div></div></div>
-                            <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 80%; background: #e67e22;"></div></div></div>
-                            <div class="stat"><span class="label">Navigation</span><div class="bar"><div class="fill" style="width: 100%; background: #e67e22;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Navigator • "Cat Burglar"</p>
+                            <p class="quote">"I'm going to draw a map of the entire world!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 95%; background: #e67e22;"></div></div></div>
+                                <div class="stat"><span class="label">Navigation</span><div class="bar"><div class="fill" style="width: 100%; background: #e67e22;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,20 +144,19 @@
         <section id="usopp" class="character-section" data-bg="assets/backgrounds/usopp.png" data-theme="#f39c12">
             <div class="content-wrapper">
                 <div class="character-image usopp-hover" style="background-image: url('assets/images/usopp.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">USOPP</h1>
                         <div class="bounty-stamp">฿ 500,000,000</div>
-                        <h1 class="name">Usopp</h1>
-                        <h3 class="role">Sniper • "God Usopp"</h3>
-                        <p class="quote">"I am a brave warrior of the sea!"</p>
-                        <div class="traits">
-                            <span>Weapon: Kabuto</span>
-                            <span>Haki: Observation</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Marksmanship</span><div class="bar"><div class="fill" style="width: 100%; background: #f39c12;"></div></div></div>
-                            <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 85%; background: #f39c12;"></div></div></div>
-                            <div class="stat"><span class="label">Luck</span><div class="bar"><div class="fill" style="width: 95%; background: #f39c12;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Sniper • "God Usopp"</p>
+                            <p class="quote">"I am a brave warrior of the sea!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Marksmanship</span><div class="bar"><div class="fill" style="width: 100%; background: #f39c12;"></div></div></div>
+                                <div class="stat"><span class="label">Luck</span><div class="bar"><div class="fill" style="width: 95%; background: #f39c12;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,20 +167,19 @@
         <section id="sanji" class="character-section" data-bg="assets/backgrounds/sanji.png" data-theme="#3498db">
             <div class="content-wrapper">
                 <div class="character-image sanji-hover" style="background-image: url('assets/images/sanji.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">SANJI</h1>
                         <div class="bounty-stamp">฿ 1,032,000,000</div>
-                        <h1 class="name">Sanji</h1>
-                        <h3 class="role">Cook • "Black Leg"</h3>
-                        <p class="quote">"I'll find the All Blue!"</p>
-                        <div class="traits">
-                            <span>Style: Black Leg Style</span>
-                            <span>Haki: Armament, Observation</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 95%; background: #3498db;"></div></div></div>
-                            <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 98%; background: #3498db;"></div></div></div>
-                            <div class="stat"><span class="label">Cooking</span><div class="bar"><div class="fill" style="width: 100%; background: #3498db;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Cook • "Black Leg"</p>
+                            <p class="quote">"I'll find the All Blue!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 95%; background: #3498db;"></div></div></div>
+                                <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 98%; background: #3498db;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,20 +190,19 @@
         <section id="chopper" class="character-section" data-bg="assets/backgrounds/chopper.png" data-theme="#e84393">
             <div class="content-wrapper">
                 <div class="character-image chopper-hover" style="background-image: url('assets/images/chopper.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">TONY TONY CHOPPER</h1>
                         <div class="bounty-stamp">฿ 1,000</div>
-                        <h1 class="name">Tony Tony Chopper</h1>
-                        <h3 class="role">Doctor • "Cotton Candy Lover"</h3>
-                        <p class="quote">"I'll become a doctor who can cure any disease!"</p>
-                        <div class="traits">
-                            <span>Devil Fruit: Hito Hito no Mi</span>
-                            <span>Specialty: Medicine</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 95%; background: #e84393;"></div></div></div>
-                            <div class="stat"><span class="label">Power (Monster)</span><div class="bar"><div class="fill" style="width: 90%; background: #e84393;"></div></div></div>
-                            <div class="stat"><span class="label">Medical Skill</span><div class="bar"><div class="fill" style="width: 100%; background: #e84393;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Doctor • "Cotton Candy Lover"</p>
+                            <p class="quote">"I'll become a doctor who can cure any disease!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 95%; background: #e84393;"></div></div></div>
+                                <div class="stat"><span class="label">Medical Skill</span><div class="bar"><div class="fill" style="width: 100%; background: #e84393;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,20 +213,19 @@
         <section id="robin" class="character-section" data-bg="assets/backgrounds/robin.png" data-theme="#9b59b6">
             <div class="content-wrapper">
                 <div class="character-image robin-hover" style="background-image: url('assets/images/robin.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">NICO ROBIN</h1>
                         <div class="bounty-stamp">฿ 930,000,000</div>
-                        <h1 class="name">Nico Robin</h1>
-                        <h3 class="role">Archaeologist • "Devil Child"</h3>
-                        <p class="quote">"I want to know the true history of the world."</p>
-                        <div class="traits">
-                            <span>Devil Fruit: Hana Hana no Mi</span>
-                            <span>Specialty: Poneglyphs</span>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 100%; background: #9b59b6;"></div></div></div>
-                            <div class="stat"><span class="label">Assassination</span><div class="bar"><div class="fill" style="width: 85%; background: #9b59b6;"></div></div></div>
-                            <div class="stat"><span class="label">Knowledge</span><div class="bar"><div class="fill" style="width: 100%; background: #9b59b6;"></div></div></div>
+                        <div class="poster-details">
+                            <p class="role">Archaeologist • "Devil Child"</p>
+                            <p class="quote">"I want to know the true history of the world."</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Intelligence</span><div class="bar"><div class="fill" style="width: 100%; background: #9b59b6;"></div></div></div>
+                                <div class="stat"><span class="label">Knowledge</span><div class="bar"><div class="fill" style="width: 100%; background: #9b59b6;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -222,20 +236,65 @@
         <section id="franky" class="character-section" data-bg="assets/backgrounds/franky.png" data-theme="#00cec9">
             <div class="content-wrapper">
                 <div class="character-image franky-hover" style="background-image: url('assets/images/franky.png');"></div>
-                <div class="character-card tilt-card">
-                    <div class="card-inner">
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">FRANKY</h1>
                         <div class="bounty-stamp">฿ 394,000,000</div>
-                        <h1 class="name">Franky</h1>
-                        <h3 class="role">Shipwright • "Iron Man"</h3>
-                        <p class="quote">"I'll build the ship of dreams that will sail any sea!"</p>
-                        <div class="traits">
-                            <span>Style: Cyborg Boxing, Radical Beam</span>
-                            <span>Specialty: Engineering</span>
+                        <div class="poster-details">
+                            <p class="role">Shipwright • "Iron Man"</p>
+                            <p class="quote">"I'll build the ship of dreams that will sail any sea!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Endurance</span><div class="bar"><div class="fill" style="width: 95%; background: #00cec9;"></div></div></div>
+                                <div class="stat"><span class="label">Engineering</span><div class="bar"><div class="fill" style="width: 100%; background: #00cec9;"></div></div></div>
+                            </div>
                         </div>
-                        <div class="stats">
-                            <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 88%; background: #00cec9;"></div></div></div>
-                            <div class="stat"><span class="label">Endurance</span><div class="bar"><div class="fill" style="width: 95%; background: #00cec9;"></div></div></div>
-                            <div class="stat"><span class="label">Engineering</span><div class="bar"><div class="fill" style="width: 100%; background: #00cec9;"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Brook -->
+        <section id="brook" class="character-section" data-bg="assets/backgrounds/brook.svg" data-theme="#00ff88">
+            <div class="content-wrapper">
+                <div class="character-image brook-hover" style="background-image: url('assets/images/brook.svg');"></div>
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">BROOK</h1>
+                        <div class="bounty-stamp">฿ 383,000,000</div>
+                        <div class="poster-details">
+                            <p class="role">Musician • "Soul King"</p>
+                            <p class="quote">"I may be dead, but my music lives on! Yohohoho!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Speed</span><div class="bar"><div class="fill" style="width: 90%; background: #00ff88;"></div></div></div>
+                                <div class="stat"><span class="label">Music</span><div class="bar"><div class="fill" style="width: 100%; background: #00ff88;"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Jinbe -->
+        <section id="jinbe" class="character-section" data-bg="assets/backgrounds/jinbe.svg" data-theme="#0984e3">
+            <div class="content-wrapper">
+                <div class="character-image jinbe-hover" style="background-image: url('assets/images/jinbe.svg');"></div>
+                <div class="wanted-poster-card tilt-card">
+                    <div class="poster-inner">
+                        <div class="poster-header">WANTED</div>
+                        <div class="poster-subheader">DEAD OR ALIVE</div>
+                        <h1 class="name">JINBE</h1>
+                        <div class="bounty-stamp">฿ 1,100,000,000</div>
+                        <div class="poster-details">
+                            <p class="role">Helmsman • "Knight of the Sea"</p>
+                            <p class="quote">"I will lay down my life for this crew!"</p>
+                            <div class="stats">
+                                <div class="stat"><span class="label">Power</span><div class="bar"><div class="fill" style="width: 95%; background: #0984e3;"></div></div></div>
+                                <div class="stat"><span class="label">Helmsmanship</span><div class="bar"><div class="fill" style="width: 100%; background: #0984e3;"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -243,15 +302,21 @@
         </section>
 
         <!-- Finale Section -->
-        <section id="finale" class="character-section finale-section" data-bg="assets/backgrounds/luffy.png">
+        <section id="finale" class="character-section finale-section" data-bg="assets/backgrounds/finale.svg">
             <div class="finale-content">
                 <h1 class="finale-title">THE STRAW HAT PIRATES</h1>
                 <h3 class="finale-subtitle">"The Adventure Never Ends."</h3>
+                <div class="credits">
+                    <p>Designed in the Grand Line</p>
+                    <a href="#" class="github-btn">View on GitHub</a>
+                </div>
                 <button id="restart-btn">Restart Journey</button>
             </div>
         </section>
     </main>
 
+    <!-- Missing Script added here! -->
     <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/observer.js"></script>
 </body>
 </html>

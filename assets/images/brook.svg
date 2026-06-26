@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="1200" fill="url(#bg)" />
+  <text x="400" y="600" font-family="'Cinzel', serif" font-size="80" font-weight="bold" fill="#00ff88" text-anchor="middle" filter="url(#glow)">BROOK</text>
+  <text x="400" y="680" font-family="'Inter', sans-serif" font-size="30" fill="#ddd" text-anchor="middle">"SOUL KING"</text>
+</svg>
