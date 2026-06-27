@@ -7,6 +7,7 @@ import { CharacterExperience } from '../components/CharacterExperience';
 import { Gallery } from '../components/Gallery';
 import { About } from '../components/About';
 import { DeveloperShowcase } from '../components/DeveloperShowcase';
+import { BackgroundAudio } from '../components/BackgroundAudio';
 
 export default function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function App() {
       <Gallery />
       <About />
       <DeveloperShowcase />
+      <BackgroundAudio />
     </div>
   );
 }
