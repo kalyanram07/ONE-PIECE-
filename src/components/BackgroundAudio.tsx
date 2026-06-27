@@ -3,7 +3,7 @@ import { Volume2, VolumeX, Music } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // TODO: The user will replace this file with their actual background score
-import bgmAudio from '../assets/bgm.mp3';
+import bgmAudio from '../assets/bgm.mp4';
 
 export const BackgroundAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
